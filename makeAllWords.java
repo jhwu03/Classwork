@@ -9,13 +9,21 @@ public class makeAllWords{
   }
 
 
-  public static void makeAllWords(int k,String partial,List<String> s){
+  public static void makeAllWords(int k,String partial,List<String> s, int maxLetter){
+    // if(partial.length() == k){
+    //   s.add(partial);
+    // }else{
+    //   makeAllWords(k,partial + "a",s);
+    //   makeAllWords(k,partial + "b",s);
+    //   makeAllWords(k,partial + "c",s);
+    // }
+    int letter = 'a' + 0;
+    int max = 'a' + maxLetter;
     if(partial.length() == k){
       s.add(partial);
-    }else{
-      makeAllWords(k,partial + "a",s);
-      makeAllWords(k,partial + "b",s);
-      makeAllWords(k,partial + "c",s);
+    }
+    for(int i = letter; i < max; i++){
+      makeAllwords(k,partial + (char)letter,s,maxLetter);
     }
   }
 
